@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+	.container(style="margin-bottom: 50px;")
+		.row
+			form
+				table.table.table-hover.table-bordered
+					thead
+						tr
+							th 头像	
+							th 名字
+							th 性别
+							th 电话
+							th 查看
+							th 修改
+							th 删除
+					tbody
+						each item in users
+							tr(class="item-id-#{item.id}")
+								td #{item.pictrue}
+								td #{item.name}
+								td #{item.sex}
+								td #{item.tel}
+								td: a.btn.detail(target="_blank", href="../movie/#{item.id}") 查看
+								td: a.btn.btn-success.update(target="_blank", href="../admin/update/#{item.id}") 修改
+								td
+									button.btn.btn-danger.del(type="button", data-id="#{item.id}") 删除
+	//script(src="/js/userManager.js")

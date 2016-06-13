@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+	.container(style="margin-bottom: 50px;")
+		.row
+			form.form-horizontal(method="post", action="/demand/save")
+				.form-group
+					label.col-sm-2.control-label(for="inputDemandName") 商品名字
+					.col-sm-10
+						input#inputDemandName.form-control(type="text", name="demand[name]", value=demand.name)
+				.form-group
+					label.col-sm-2.control-label(for="inputType") 类型
+					.col-sm-10
+						input#inputType.form-control(type="text", name="demand[type]", value=demand.type)
+				.form-group
+					label.col-sm-2.control-label(for="inputNum") 数量
+					.col-sm-10
+						input#inputNum.form-control(type="text", name="demand[num]", value=demand.num)
+				.form-group
+					label.col-sm-2.control-label(for="inputDesc") 描述
+					.col-sm-10
+						textarea#inputDesc.form-control(name="demand[description]", value=demand.description, row="3")
+				.form-group
+					label.col-sm-2.control-label(for="inputDate") 有效日期
+					.col-sm-10
+						.col-sm-4
+							input#inputDate.form-control(type="date", name="demand[datefrom]", value=demand.datefrom)
+						.col-sm-1(style="text-align: center;font-size: 18px;") ----
+						.col-sm-4
+							input#inputDate.form-control(type="date", name="demand[dateto]", value=demand.dateto)
+				input(type="hidden", name="demand[user]", value=user.name)
+				input(type="hidden", name="demand[id]", value=demand.id)
+				.form-group
+					.col-sm-offset-2.col-sm-10
+					button.btn.btn-default(type="submit") 录入

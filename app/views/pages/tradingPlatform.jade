@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+	.container
+		.row
+			.col-md-6
+				h3 &nbsp;&nbsp;热门商品
+				- for (var i=0;i<9;i++) {
+					include ../module/tradingplatformUnit1
+				- }
+			.col-md-3.newproducts(style="font-size: 22px;")
+				h3 新增商品
+				each item in products
+					a(href="javascript:void(0)") #{item.owner}发布了#{item.productname}
+					br
+			.col-md-3(style="font-size: 22px;")
+				h3 今日热卖
+				a(href="javascript:void(0)") bbb 发布了 红薯10吨
+				br
+				a(href="javascript:void(0)") bbb 发布了 红薯10吨
+				br
+				a(href="javascript:void(0)") bbb 发布了 红薯10吨
+				br
+				a(href="javascript:void(0)") bbb 发布了 红薯10吨
+				br
+				a(href="javascript:void(0)") bbb 发布了 红薯10吨
+				br
+				a(href="javascript:void(0)") bbb 发布了 红薯10吨
+				br
+				a(href="javascript:void(0)") bbb 发布了 红薯10吨
+				br
+				a(href="javascript:void(0)") bbb 发布了 红薯10吨
+				br
+				a(href="javascript:void(0)") bbb 发布了 红薯10吨
+				br
+				a(href="javascript:void(0)") bbb 发布了 红薯10吨
+	script(src='/socket.io/socket.io.js')
+	script(src='/js/platformHandler.js')

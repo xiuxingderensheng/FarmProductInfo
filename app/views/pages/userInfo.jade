@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+	form
+		table.table.table-hover.table-bordered
+			thead
+				tr
+					th 字段	
+					th 内容
+					th 操作
+			tbody
+				tr(class="user-id-#{user.id}")
+					td #{user.pictrue}
+					td
+						input(type="text", value="#{user.name}", disabled="disabled")
+					td
+						input(type="text", value="#{user.sex}", disabled="disabled")
+					td
+						input(type="text", value="#{user.tel}", disabled="disabled")
+					td
+						input(type="text", value="#{user.address}", disabled="disabled")
+					td
+						input(type="text", value="#{user.role}", disabled="disabled")
+					td
+						input(type="text", value="#{user.meta.createAt}", disabled="disabled")
+	script(src="js/userManager.js")

@@ -1,0 +1,18 @@
+doctype
+html
+	head
+		meta(charset="utf-8")
+		title #{title}
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+	body
+		block content
+			h3 出错了亲！！！3秒钟后跳转到首页……
+		script.
+			window.load = function(){
+				var redirectHandler = function() {
+					setInterval(function(){
+						window.location.href = 'localhost:3030/';
+					}, 3000);
+				}
+			};

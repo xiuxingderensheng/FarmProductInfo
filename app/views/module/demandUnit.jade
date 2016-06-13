@@ -1,0 +1,17 @@
+each item in demands
+	table.table-bordered.col-md-6(style="height: 160px;margin-bottom: 5px;text-align: left;", class="item-id-#{item._id}")
+		tr
+			td(colspan="3")
+				b 商品名：#{item.name}
+		tr
+			td 类型：#{item.type}
+			td 数量：#{item.num}
+			td 价钱：
+		tr
+			td(colspan="3") 有效日期：#{item.datefrom} —— #{item.dateto}
+		tr
+			td(style="height: 40px;width: 200px;text-align: center;")
+				a.glyphicon.glyphicon-asterisk(href="/demand/update?id=#{item.id}", title="修改")
+				| &nbsp;&nbsp;&nbsp;
+				a.glyphicon.glyphicon-trash(href="javascript:void(0)", title="删除", data-id="#{item._id}")
+			td(colspan="2") 描述：#{item.description}

@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+	.container(style="margin-bottom: 50px;")
+		.row
+			table.table.table-hover.table-bordered
+				thead
+					tr
+						th 商品名
+						th 类型
+						th 数量
+						th 图片
+						th 描述
+						th 有效日期
+						th 所有者
+				tbody
+					each item in products
+						tr
+							td #{item.productname}
+							td #{item.type}
+							td #{item.num}
+							td
+								img(src="/images/#{item.img}", style="width: 150px;height: 100px;")
+							td #{item.description}
+							td #{item.datefrom} - #{item.dateto}
+							td #{item.owner}
+	//script(src="/js/userManager.js")

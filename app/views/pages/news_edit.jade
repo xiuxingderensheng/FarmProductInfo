@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+	.container(style="margin-bottom: 50px;")
+		.row
+			form.form-horizontal(method="post", action="/manager/news/save")
+				.form-group
+					label.col-sm-2.control-label(for="inputType") 类型
+					.col-sm-10
+						select#inputType.form-control(name="news[type]", value=news.type)
+							- var types=["今日焦点","市场","科技","政策"]
+							- for (var i=0;i<types.length;i++) {
+								if (types[i] == news.type)
+									option(type="text", value=types[i], selected) #{types[i]}
+								else
+									option(type="text", value=types[i]) #{types[i]}
+							- }
+				.form-group
+					label.col-sm-2.control-label(for="inputTitle") 标题
+					.col-sm-10
+						input#inputTitle.form-control(type="text", name="news[title]", value=news.title)
+				.form-group
+					label.col-sm-2.control-label(for="inputContent") 内容
+					.col-sm-10
+						textarea#inputContent(name="news[content]", value=news.content)
+				.form-group
+					label.col-sm-2.control-label(for="inputAuthor") 作者
+					.col-sm-10
+						input#inputTitle.form-control(type="text", name="news[author]", value=news.author)
+				input(type="hidden", name="news[id]", value="#{news.id}")
+				.form-group
+					.col-sm-offset-2.col-sm-10
+					button.btn.btn-success(type="submit") 保存
+	script(src="/libs/ueditor/ueditor.config.js")
+	script(src="/libs/ueditor/ueditor.all.min.js")
+	script(src="/libs/ueditor/lang/zh-cn/zh-cn.js")
+	script.
+		var ue = UE.getEditor('inputContent');

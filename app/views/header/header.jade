@@ -1,0 +1,58 @@
+.navbar.navbar-default.navbar-fixed-top
+	.container
+		.navbar-header
+			a.navbar-brand(href="javascript:void(0)") 头部导航栏
+		div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+			ul.nav.navbar-nav
+				li.active
+					a(href="http://localhost:3030/") 首页
+				li
+					a(href="http://localhost:3030/tradingPlatform", target="_blank") 交易大厅
+				li.dropdown
+					a.dropdown-toggle(href="javascript:void(0)", data-toggle="dropdown", role="button" aria-haspopup="true", aria-expanded="false") 商品管理
+						span.caret
+					ul.dropdown-menu
+						li
+							a(href="http://localhost:3030/product/list", target="_blank") 商品列表
+						li.divider(role="separator")
+						li
+							a(href="http://localhost:3030/product/manager", target="_blank") 商品管理
+						li
+							a(href="http://localhost:3030/product/new", target="_blank") 新增商品
+				li.dropdown
+					a.dropdown-toggle(href="javascript:void(0)", data-toggle="dropdown", role="button" aria-haspopup="true", aria-expanded="false") 用户相关
+						span.caret
+					ul.dropdown-menu
+						li
+							a(href="http://localhost:3030/admin/user/list", target="_blank") 用户列表
+							a(href="http://localhost:3030/user/userZone", target="_blank") 个人中心
+				li.dropdown
+					a.dropdown-toggle(href="javascript:void(0)", data-toggle="dropdown", role="button" aria-haspopup="true", aria-expanded="false") 需求管理
+						span.caret
+					ul.dropdown-menu
+						li
+							a(href="http://localhost:3030/product/new", target="_blank") 新增商品
+						li
+							a(href="http://localhost:3030/demand/new", target="_blank") 新增需求
+						li.divider(role="separator")
+						li
+							a(href="/demand/manager", target="_blank") 需求管理
+				li
+					a(href="/news_edit", target="_blank") 发布新闻
+			form.navbar-form.navbar-left(role="search")
+				div.form-group
+					input.form-control(type="text", placeholder="Search")
+				button.btn.btn-default(type="submit") Submit
+			if user
+				p.navbar-text.navbar-right
+					span 欢迎您,#{user.name}
+					span &nbsp;|&nbsp;
+					a.navbar-link(href="/logout") 登出
+			else
+				p.navbar-text.navbar-right
+					a.navbar-link(href="#", data-toggle="modal", data-target="#signupModal") 注册
+					span &nbsp;|&nbsp
+					a.navbar-link(href="#", data-toggle="modal", data-target="#signinModal") 登录
+include ../module/modal
+.page-header(style="margin-top: 51px;height: 150px;background: #6A8BFF;")
+	h1 #{headTitle}

@@ -1,0 +1,17 @@
+div(style="border: 1px solid #eee;width: 100%;height: 257px;")
+	h3 新闻
+		div
+			ul.nav.nav-tabs(role="tablist", style="font-size: 18px;")
+				li.active(role="presentation")
+					a(href="#home", aria-controls="home", role="tab", data-toggle="tab") 今日焦点
+				li(role="presentation")
+					a(href="#profile1", aria-controls="profile", role="tab", data-toggle="tab") 市场
+				li(role="presentation")
+					a(href="#profile2", aria-controls="profile", role="tab", data-toggle="tab") 科技
+				li(role="presentation")
+					a(href="#profile3", aria-controls="profile", role="tab", data-toggle="tab") 政策
+			div.tab-content(style="font-size: 16px;")
+				div.tab-pane.active#home(role="tabpanel") home
+				div.tab-pane#profile1(role="tabpanel") profile1
+				div.tab-pane#profile2(role="tabpanel") profile2
+				div.tab-pane#profile3(role="tabpanel") profile3

@@ -1,0 +1,22 @@
+each item in products
+	table.table-bordered.col-md-6(style="height: 160px;margin-bottom: 5px;text-align: left;")
+		tr
+			td(rowspan="3", style="width:130px;text-align: center;")
+				img(src="/images/#{item.img}", style="width: 120px;height: 120px;")
+			td(colspan="4") 商品名：#{item.productname}
+		tr
+			td
+			td(style="width: 233px;") 类型：#{item.type}
+			td(style="width: 120px;") 数量：#{item.num}
+			td(style="width: 100px;") 价钱：
+		tr
+			td 
+			td(colspan="4") 有效日期：#{item.datefrom} - #{item.dateto}
+		tr
+			td(style="height: 40px;text-align: center;")
+				a.glyphicon.glyphicon-asterisk(href="/product/update?id=#{item.id}", title="修改")
+				| &nbsp;&nbsp;&nbsp;
+				a.glyphicon.glyphicon-folder-close(href="/product/down?id=#{item.id}", title="下架")
+				| &nbsp;&nbsp;&nbsp;
+				a.glyphicon.glyphicon-trash(href="/product/delete?id=#{item.id}", title="删除")
+			td(colspan="4") 描述：#{item.description}
